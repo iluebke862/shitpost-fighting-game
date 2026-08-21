@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://j7rxgo0gu1dv"]
+
+[ext_resource type="PackedScene" uid="uid://b1q8l48u481el" path="res://map.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://1a4t40xtb4us" path="res://player.tscn" id="2_h2yge"]
+
+[node name="main" type="Node2D" unique_id=1112683160]
+
+[node name="map" parent="." unique_id=1432129360 instance=ExtResource("1_0xm2m")]
+
+[node name="player" parent="." unique_id=984992411 instance=ExtResource("2_h2yge")]
+position = Vector2(-127, -157)
+
+[node name="player2" parent="." unique_id=1820685822 instance=ExtResource("2_h2yge")]
+position = Vector2(123, -129)
+player = 2
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1170388133]
