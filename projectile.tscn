@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://d3apywga1kmpq" path="res://projectile.gd" id="1_a85iw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0i7yq"]
-size = Vector2(30, 15)
+size = Vector2(10, 5)
 
 [sub_resource type="QuadMesh" id="QuadMesh_xqxsa"]
-size = Vector2(30, 15)
+size = Vector2(10, 5)
 
 [node name="projectile" type="RigidBody2D" unique_id=1572084092]
 script = ExtResource("1_a85iw")

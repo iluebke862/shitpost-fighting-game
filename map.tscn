@@ -1,10 +1,14 @@
 [gd_scene format=3 uid="uid://b1q8l48u481el"]
 
+[ext_resource type="Script" uid="uid://bf3pbkwu6metb" path="res://deathwall.gd" id="1_c7s6e"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0i7yq"]
 size = Vector2(500, 20)
 
 [sub_resource type="QuadMesh" id="QuadMesh_xqxsa"]
 size = Vector2(500, 20)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o1m7y"]
 
 [node name="map" type="Node2D" unique_id=1432129360]
 
@@ -15,3 +19,14 @@ shape = SubResource("RectangleShape2D_0i7yq")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=1115425620]
 mesh = SubResource("QuadMesh_xqxsa")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1262490121]
+position = Vector2(0, 80)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_c7s6e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2094350328]
+shape = SubResource("WorldBoundaryShape2D_o1m7y")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

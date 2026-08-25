@@ -1,14 +1,18 @@
 extends CharacterBody2D
 
+var HP = 100
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
+var direction = 0
+var lastdirection = 1
 @export var player = 1
 var inputs = [false,false,false,false]
 const projectile = preload("res://projectile.tscn")
 
 func _physics_process(delta: float) -> void:
+	if HP < 0:
+		queue_free()
 	
 	if player == 1:
 		if Input.is_action_pressed("P1 - left"):
@@ -52,16 +56,20 @@ func _physics_process(delta: float) -> void:
 		var new = projectile.instantiate()
 		get_node("/root/main").add_child(new)
 		new.position = position
+		new.direction = lastdirection
+		new.position += Vector2(10*new.direction,0)
+		
 		inputs[3] = false
 
 
-	var direction = 0
+	direction = 0
 	if inputs[0]:
 		direction -= 1
 	if inputs[1]:
 		direction += 1
 	if direction:
 		velocity.x = direction * SPEED
+		lastdirection = direction
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
