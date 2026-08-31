@@ -20,13 +20,47 @@ shape = SubResource("RectangleShape2D_0i7yq")
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=1115425620]
 mesh = SubResource("QuadMesh_xqxsa")
 
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D" unique_id=1501834990]
+position = Vector2(-252, 0)
+rotation = 0.06981317
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D" unique_id=1000004966]
+shape = SubResource("RectangleShape2D_0i7yq")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D/StaticBody2D" unique_id=457512527]
+mesh = SubResource("QuadMesh_xqxsa")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="StaticBody2D" unique_id=913738833]
+position = Vector2(252, 0)
+rotation = -0.08726646
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D2" unique_id=105759212]
+shape = SubResource("RectangleShape2D_0i7yq")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D/StaticBody2D2" unique_id=1670030678]
+mesh = SubResource("QuadMesh_xqxsa")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1262490121]
 position = Vector2(0, 80)
 collision_layer = 0
-collision_mask = 2
+collision_mask = 6
 script = ExtResource("1_c7s6e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2094350328]
 shape = SubResource("WorldBoundaryShape2D_o1m7y")
+
+[node name="spawns" type="Node2D" parent="." unique_id=1230862344]
+
+[node name="1" type="Node2D" parent="spawns" unique_id=514270814]
+position = Vector2(-268, -166)
+
+[node name="2" type="Node2D" parent="spawns" unique_id=2091783201]
+position = Vector2(314, -153)
+
+[node name="3" type="Node2D" parent="spawns" unique_id=558067662]
+position = Vector2(-119, -164)
+
+[node name="4" type="Node2D" parent="spawns" unique_id=660342698]
+position = Vector2(109, -166)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -1,17 +1,30 @@
 [gd_scene format=3 uid="uid://j7rxgo0gu1dv"]
 
-[ext_resource type="PackedScene" uid="uid://b1q8l48u481el" path="res://map.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://1a4t40xtb4us" path="res://player.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://bc6m0srtaw0k4" path="res://main.gd" id="1_ig7tw"]
 
 [node name="main" type="Node2D" unique_id=1112683160]
-
-[node name="map" parent="." unique_id=1432129360 instance=ExtResource("1_0xm2m")]
-
-[node name="player" parent="." unique_id=984992411 instance=ExtResource("2_h2yge")]
-position = Vector2(-127, -157)
-
-[node name="player2" parent="." unique_id=1820685822 instance=ExtResource("2_h2yge")]
-position = Vector2(123, -129)
-player = 2
+script = ExtResource("1_ig7tw")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1170388133]
+
+[node name="Button" type="Button" parent="." unique_id=193293433]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -15.5
+offset_right = 20.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Play"
+
+[node name="map" type="Node2D" parent="." unique_id=47177274]
+
+[node name="players" type="Node2D" parent="." unique_id=1433430330]
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

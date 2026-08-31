@@ -8,7 +8,11 @@ size = Vector2(10, 5)
 [sub_resource type="QuadMesh" id="QuadMesh_xqxsa"]
 size = Vector2(10, 5)
 
-[node name="projectile" type="RigidBody2D" unique_id=1572084092]
+[node name="projectile" type="RigidBody2D" unique_id=1572084092 groups=["Projectiles"]]
+collision_layer = 4
+collision_mask = 7
+contact_monitor = true
+max_contacts_reported = 1
 script = ExtResource("1_a85iw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2076068655]

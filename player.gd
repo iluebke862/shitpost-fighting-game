@@ -1,16 +1,28 @@
-extends CharacterBody2D
+extends RigidBody2D
 
 var HP = 100
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 50.0
+const JUMP_VELOCITY = -900.0
 var direction = 0
 var lastdirection = 1
 @export var player = 1
 var inputs = [false,false,false,false]
 const projectile = preload("res://projectile.tscn")
+var on_floor = false
+
+func damage(value):
+	HP -= value
+	if HP < 0:
+		queue_free()
 
 func _physics_process(delta: float) -> void:
+	get_node("RayCast2D").rotation = -rotation
+	if get_node("RayCast2D").is_colliding():
+		on_floor = true
+	else:
+		on_floor = false
+		get_node("ProgressBar").value = HP
 	if HP < 0:
 		queue_free()
 	
@@ -43,21 +55,23 @@ func _physics_process(delta: float) -> void:
 	
 	
 	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+	if not on_floor:
+		linear_velocity += get_gravity() * delta
 
 	# Handle jump.
 	if inputs[2]:
 		inputs[2] = false
-		if is_on_floor():
-			velocity.y = JUMP_VELOCITY
+		if on_floor:
+			linear_velocity.y += JUMP_VELOCITY
 	
 	if inputs[3]:
 		var new = projectile.instantiate()
 		get_node("/root/main").add_child(new)
 		new.position = position
 		new.direction = lastdirection
-		new.position += Vector2(10*new.direction,0)
+		new.position += Vector2(50*new.direction,0)
+		new.linear_velocity = Vector2(1000*new.direction,0)
+		new.life = 3
 		
 		inputs[3] = false
 
@@ -68,8 +82,5 @@ func _physics_process(delta: float) -> void:
 	if inputs[1]:
 		direction += 1
 	if direction:
-		velocity.x = direction * SPEED
+		linear_velocity += Vector2(direction * SPEED,0)
 		lastdirection = direction
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	move_and_slide()
