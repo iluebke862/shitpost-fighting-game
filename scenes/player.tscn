@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://1a4t40xtb4us"]
 
 [ext_resource type="Script" uid="uid://cuyfqcjuy1owg" path="res://script/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://2fnvg2f1gvfm" path="res://sprites/derpy guy.png" id="2_g2els"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0i7yq"]
 
@@ -18,9 +19,11 @@ script = ExtResource("1_3vyb7")
 shape = SubResource("CapsuleShape2D_0i7yq")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=1791890069]
+visible = false
 mesh = SubResource("CapsuleMesh_0i7yq")
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1352783166]
+texture_filter = 1
 position = Vector2(0, 1)
 target_position = Vector2(0, 21)
 
@@ -36,3 +39,7 @@ offset_right = 5.0
 offset_bottom = -15.775002
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=180229681]
+texture_filter = 1
+texture = ExtResource("2_g2els")
