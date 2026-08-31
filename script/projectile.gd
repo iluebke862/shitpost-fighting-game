@@ -10,6 +10,5 @@ func _physics_process(delta: float) -> void:
 	for i in get_colliding_bodies():
 		if i.is_in_group("Players"):
 			i.damage(10)
-			print("hi")
-			i.linear_velocity += Vector2(randf()*1000-5,randf()*1000-5) 
+			i.apply_velocity(randf()*10-5,randf()*10-5) 
 			linear_velocity += Vector2(randf()*1000-5,randf()*1000-5)

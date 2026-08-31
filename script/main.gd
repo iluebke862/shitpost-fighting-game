@@ -1,7 +1,7 @@
 extends Node2D
 
-const maps = [preload("res://map.tscn")]
-const player = preload("res://player.tscn")
+const maps = [preload("res://scenes/map.tscn")]
+const player = preload("res://scenes/player.tscn")
 
 var active = false
 

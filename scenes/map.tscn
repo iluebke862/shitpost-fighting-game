@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1q8l48u481el"]
 
-[ext_resource type="Script" uid="uid://bf3pbkwu6metb" path="res://script/deathwall.gd" id="1_c7s6e"]
+[ext_resource type="Script" uid="uid://bf3pbkwu6metb" path="res://script/lava.gd" id="1_4xfga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0i7yq"]
 size = Vector2(500, 20)
@@ -44,7 +44,7 @@ mesh = SubResource("QuadMesh_xqxsa")
 position = Vector2(0, 80)
 collision_layer = 0
 collision_mask = 6
-script = ExtResource("1_c7s6e")
+script = ExtResource("1_4xfga")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2094350328]
 shape = SubResource("WorldBoundaryShape2D_o1m7y")
@@ -64,3 +64,4 @@ position = Vector2(-119, -164)
 position = Vector2(109, -166)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

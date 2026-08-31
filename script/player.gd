@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-var HP = 100
+var HP = 1
 
 const SPEED = 50.0
 const JUMP_VELOCITY = -900.0
@@ -8,13 +8,16 @@ var direction = 0
 var lastdirection = 1
 @export var player = 1
 var inputs = [false,false,false,false]
-const projectile = preload("res://projectile.tscn")
+const projectile = preload("res://scenes/projectile.tscn")
 var on_floor = false
+var jumpcooldown = false
 
 func damage(value):
-	HP -= value
+	HP += value
 	if HP < 0:
 		queue_free()
+func apply_velocity(x,y):
+	linear_velocity += Vector2(x,y) * HP
 
 func _physics_process(delta: float) -> void:
 	get_node("RayCast2D").rotation = -rotation
@@ -22,9 +25,8 @@ func _physics_process(delta: float) -> void:
 		on_floor = true
 	else:
 		on_floor = false
-		get_node("ProgressBar").value = HP
-	if HP < 0:
-		queue_free()
+		get_node("ProgressBar").text = str(HP)
+
 	
 	if player == 1:
 		if Input.is_action_pressed("P1 - left"):
@@ -55,14 +57,18 @@ func _physics_process(delta: float) -> void:
 	
 	
 	# Add the gravity.
+	if on_floor:
+		jumpcooldown = true
 	if not on_floor:
 		linear_velocity += get_gravity() * delta
+		
 
 	# Handle jump.
 	if inputs[2]:
 		inputs[2] = false
-		if on_floor:
+		if jumpcooldown:
 			linear_velocity.y += JUMP_VELOCITY
+			jumpcooldown = false
 	
 	if inputs[3]:
 		var new = projectile.instantiate()
