@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b1q8l48u481el"]
 
-[ext_resource type="Script" uid="uid://bf3pbkwu6metb" path="res://deathwall.gd" id="1_c7s6e"]
+[ext_resource type="Script" uid="uid://bf3pbkwu6metb" path="res://script/deathwall.gd" id="1_c7s6e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0i7yq"]
 size = Vector2(500, 20)
