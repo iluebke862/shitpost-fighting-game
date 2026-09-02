@@ -2,15 +2,25 @@ extends RigidBody2D
 
 var HP = 1
 
+const skins = [preload("res://sprites/derpy guy.png"),preload("res://sprites/derpy guy red.png"),preload("res://sprites/derpy guy blue.png"),preload("res://sprites/derpy guy green.png"),preload("res://sprites/derpy guy orange.png"),preload("res://sprites/derpy guy pink.png"),preload("res://sprites/derpy guy purple.png"),preload("res://sprites/derpy guy yellow.png")]
+
+
 const SPEED = 50.0
 const JUMP_VELOCITY = -900.0
 var direction = 0
 var lastdirection = 1
 @export var player = 1
 var inputs = [false,false,false,false]
-const projectile = preload("res://scenes/projectile.tscn")
+const projectiles = [preload("res://scenes/projectile.tscn"),preload("res://scenes/snake_projectile.tscn")]
+const cooldowns = [0.1,1]
+var weapon = 1
+var cooldown = 0
 var on_floor = false
 var jumpcooldown = false
+
+
+	
+
 
 func damage(value):
 	HP += value
@@ -19,7 +29,17 @@ func damage(value):
 func apply_velocity(x,y):
 	linear_velocity += Vector2(x,y) * HP
 
+
+func death():
+	
+	queue_free()
+
+
+
 func _physics_process(delta: float) -> void:
+	get_node("Sprite2D").texture = skins[player-1]
+	if cooldown > 0:
+		cooldown -= delta
 	get_node("RayCast2D").rotation = -rotation
 	if get_node("RayCast2D").is_colliding():
 		on_floor = true
@@ -71,15 +91,16 @@ func _physics_process(delta: float) -> void:
 			jumpcooldown = false
 	
 	if inputs[3]:
-		var new = projectile.instantiate()
-		get_node("/root/main").add_child(new)
-		new.position = position
-		new.direction = lastdirection
-		new.position += Vector2(50*new.direction,0)
-		new.linear_velocity = Vector2(1000*new.direction,0)
-		new.life = 3
-		
-		inputs[3] = false
+		if cooldown <= 0:
+			var new = projectiles[weapon].instantiate()
+			get_node("/root/main").add_child(new)
+			new.position = position
+			new.direction = lastdirection
+			new.position += Vector2(50*new.direction,0)
+			new.linear_velocity = Vector2(1000*new.direction,0)
+			new.life = 3
+			cooldown = cooldowns[weapon]
+			inputs[3] = false
 
 
 	direction = 0

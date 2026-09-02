@@ -4,9 +4,7 @@ var playersin = []
 
 
 func _on_body_entered(body: Node2D) -> void:
-	print(body)
 	if body.is_in_group("Projectiles"):
-		print(body)
 		body.queue_free()
 	if body.is_in_group("Players"):
 		playersin.append(body)

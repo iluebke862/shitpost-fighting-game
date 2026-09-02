@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dpi50swmgrs1g"]
+
+[ext_resource type="Script" uid="uid://ba2fylcl3g03f" path="res://script/snake_projectile.gd" id="1_tr4q0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0i7yq"]
+size = Vector2(10, 5)
+
+[sub_resource type="QuadMesh" id="QuadMesh_xqxsa"]
+size = Vector2(10, 5)
+
+[node name="projectile" type="RigidBody2D" unique_id=1572084092 groups=["Projectiles"]]
+collision_layer = 4
+collision_mask = 7
+gravity_scale = 0.079
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_tr4q0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2076068655]
+shape = SubResource("RectangleShape2D_0i7yq")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="." unique_id=512819891]
+mesh = SubResource("QuadMesh_xqxsa")

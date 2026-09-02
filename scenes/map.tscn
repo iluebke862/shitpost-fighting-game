@@ -10,6 +10,9 @@ size = Vector2(500, 20)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o1m7y"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_o1m7y"]
+size = Vector2(1000, 500)
+
 [node name="map" type="Node2D" unique_id=1432129360]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=801730547]
@@ -48,6 +51,11 @@ script = ExtResource("1_4xfga")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2094350328]
 shape = SubResource("WorldBoundaryShape2D_o1m7y")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Area2D" unique_id=1515171334]
+position = Vector2(1, 126.5)
+scale = Vector2(1.4360001, 0.494)
+mesh = SubResource("QuadMesh_o1m7y")
 
 [node name="spawns" type="Node2D" parent="." unique_id=1230862344]
 
