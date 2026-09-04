@@ -75,6 +75,29 @@ gravity = -764.522
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deathwall/Area2D4" unique_id=773689063]
 shape = SubResource("WorldBoundaryShape2D_o1m7y")
 
+[node name="player list" type="Control" parent="." unique_id=831511230]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="player list" unique_id=1823053691]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="body_entered" from="Deathwall/Area2D" to="Deathwall" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Deathwall/Area2D2" to="Deathwall" method="_on_area_2d_body_entered"]

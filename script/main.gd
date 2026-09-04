@@ -2,6 +2,7 @@ extends Node2D
 
 const maps = [preload("res://scenes/map.tscn")]
 const player = preload("res://scenes/player.tscn")
+const tracker = preload("res://scenes/playertracker.tscn")
 
 var active = false
 
@@ -14,6 +15,10 @@ func _on_button_pressed() -> void:
 		new.position = get_node("map").get_child(0).get_node("spawns").get_children()[i % get_node("map").get_child(0).get_node("spawns").get_child_count()].position
 		get_node("players").add_child(new)
 		new.player = i+1
+		var newtracker = tracker.instantiate()
+		newtracker.player = new
+		get_node("player list/HBoxContainer").add_child(newtracker)
+		
 	get_node("Button").hide()
 	active = true
 

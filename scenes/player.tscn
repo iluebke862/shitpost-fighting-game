@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://2fnvg2f1gvfm" path="res://sprites/derpy guy.png" id="2_g2els"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0i7yq"]
+radius = 9.0
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0i7yq"]
 radius = 10.0

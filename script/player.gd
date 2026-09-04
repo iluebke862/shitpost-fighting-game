@@ -18,7 +18,7 @@ var cooldown = 0
 var on_floor = false
 var jumpcooldown = false
 
-
+signal killtracker()
 	
 
 
@@ -31,7 +31,7 @@ func apply_velocity(x,y):
 
 
 func death():
-	
+	killtracker.emit()
 	queue_free()
 
 
