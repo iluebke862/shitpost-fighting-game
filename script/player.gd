@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		on_floor = true
 	else:
 		on_floor = false
-		get_node("ProgressBar").text = str(HP)
+	get_node("ProgressBar").text = str(HP)
 
 	
 	if player == 1:
