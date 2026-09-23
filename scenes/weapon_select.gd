@@ -1,6 +1,7 @@
 extends Control
 
 var weapon = 0
+const cooldown = 0.1
 signal start()
 
 func _on_default_pressed() -> void:
