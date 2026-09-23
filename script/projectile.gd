@@ -1,7 +1,9 @@
 extends RigidBody2D
 var direction = 1
 var life = 0
-
+var cooldown = 0.1
+var player = null
+var vel = 1000
 
 func _physics_process(delta: float) -> void:
 	life -= delta

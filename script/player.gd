@@ -12,7 +12,6 @@ var lastdirection = 1
 @export var player = 1
 var inputs = [false,false,false,false]
 const projectiles = [preload("res://scenes/projectile.tscn"),preload("res://scenes/snake_projectile.tscn")]
-const cooldowns = [0.1,1]
 var weapon = 0
 var cooldown = 0
 var on_floor = false
@@ -97,9 +96,10 @@ func _physics_process(delta: float) -> void:
 			new.position = position
 			new.direction = lastdirection
 			new.position += Vector2(50*new.direction,0)
-			new.linear_velocity = Vector2(1000*new.direction,0)
+			new.linear_velocity = Vector2(new.vel*new.direction,0)
 			new.life = 3
-			cooldown = cooldowns[weapon]
+			cooldown = new.cooldown
+			new.player = player
 			inputs[3] = false
 
 

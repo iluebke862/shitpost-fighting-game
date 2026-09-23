@@ -1,7 +1,11 @@
 extends RigidBody2D
 var direction = 1
 var life = 0
+const cooldown = 1
 var iteration = 0
+var player = null
+var vel = 1000
+
 const selfpreload = preload("res://scenes/snake_projectile.tscn")
 func _physics_process(delta: float) -> void:
 	if iteration < 10:
