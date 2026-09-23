@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://0xd4ypd5htki"]
+
+[ext_resource type="Script" uid="uid://c72ux5jxjfe4s" path="res://script/ip_input.gd" id="1_l6cm7"]
+
+[node name="Main Menu" type="Control" unique_id=1365640705]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1631914590]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1954553271]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Play" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=89062265]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+text = "Play	"
+
+[node name="Host" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=1430983892]
+custom_minimum_size = Vector2(90, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Host"
+
+[node name="Join" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=1305696366]
+custom_minimum_size = Vector2(90, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Join"
+
+[node name="ip_input" type="TextEdit" parent="HBoxContainer/VBoxContainer" unique_id=922133747]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+emoji_menu_enabled = false
+scroll_fit_content_width = true
+script = ExtResource("1_l6cm7")
+
+[node name="Settings" type="Button" parent="HBoxContainer/VBoxContainer" unique_id=2091411953]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+text = "Settings"
+
+[node name="Customization" type="Panel" parent="HBoxContainer" unique_id=749126771]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[connection signal="text_changed" from="HBoxContainer/VBoxContainer/ip_input" to="HBoxContainer/VBoxContainer/ip_input" method="_on_text_changed"]

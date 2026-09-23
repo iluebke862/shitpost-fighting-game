@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="idk"
-run/main_scene="uid://j7rxgo0gu1dv"
+run/main_scene="uid://0xd4ypd5htki"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://sprites/icon.svg"
 
