@@ -47,32 +47,20 @@ func _physics_process(delta: float) -> void:
 	get_node("ProgressBar").text = str(HP)
 
 	
-	if player == 1:
-		if Input.is_action_pressed("P1 - left"):
-			inputs[0] = true
-		else:
-			inputs[0] = false
-		if Input.is_action_pressed("P1 - right"):
-			inputs[1] = true
-		else:
-			inputs[1] = false
-		if Input.is_action_just_pressed("P1 - jump"):
-			inputs[2] = true
-		if Input.is_action_just_pressed("P1 - shoot"):
-			inputs[3] = true
-	elif player == 2:
-		if Input.is_action_pressed("P2 - left"):
-			inputs[0] = true
-		else:
-			inputs[0] = false
-		if Input.is_action_pressed("P2 - right"):
-			inputs[1] = true
-		else:
-			inputs[1] = false
-		if Input.is_action_just_pressed("P2 - jump"):
-			inputs[2] = true
-		if Input.is_action_just_pressed("P2 - shoot"):
-			inputs[3] = true
+
+	if Input.is_action_pressed("P1 - left"):
+		inputs[0] = true
+	else:
+		inputs[0] = false
+	if Input.is_action_pressed("P1 - right"):
+		inputs[1] = true
+	else:
+		inputs[1] = false
+	if Input.is_action_just_pressed("P1 - jump"):
+		inputs[2] = true
+	if Input.is_action_just_pressed("P1 - shoot"):
+		inputs[3] = true
+
 	
 	
 	# Add the gravity.
