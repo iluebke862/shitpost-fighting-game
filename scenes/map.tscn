@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bf3pbkwu6metb" path="res://script/lava.gd" id="1_4xfga"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0i7yq"]
-size = Vector2(500, 20)
+size = Vector2(755, 20)
 
 [sub_resource type="QuadMesh" id="QuadMesh_xqxsa"]
 size = Vector2(500, 20)
@@ -21,26 +21,7 @@ size = Vector2(1000, 500)
 shape = SubResource("RectangleShape2D_0i7yq")
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D" unique_id=1115425620]
-mesh = SubResource("QuadMesh_xqxsa")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D" unique_id=1501834990]
-position = Vector2(-252, 0)
-rotation = 0.06981317
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D" unique_id=1000004966]
-shape = SubResource("RectangleShape2D_0i7yq")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D/StaticBody2D" unique_id=457512527]
-mesh = SubResource("QuadMesh_xqxsa")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="StaticBody2D" unique_id=913738833]
-position = Vector2(252, 0)
-rotation = -0.08726646
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D2" unique_id=105759212]
-shape = SubResource("RectangleShape2D_0i7yq")
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="StaticBody2D/StaticBody2D2" unique_id=1670030678]
+scale = Vector2(1.51, 1)
 mesh = SubResource("QuadMesh_xqxsa")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1262490121]
